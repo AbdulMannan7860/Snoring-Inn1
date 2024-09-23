@@ -1,0 +1,73 @@
+/* LoginForm.css */
+.loginContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.loginBox {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+}
+
+.loginBox h1 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  color: #333;
+}
+
+.loginBox form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loginBox input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.loginBox input:focus {
+  border: 1px solid #fea116;
+}
+
+.loginBox button {
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background-color: #fea116;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.loginBox button:hover {
+  background-color: #fea116;
+}
+
+.loginBox button:focus {
+  outline: none;
+}
+
+.loginBox input::placeholder {
+  color: #999;
+}
+
+.loginBox p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
