@@ -1,6 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Book() {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const nav = useNavigate();
+
+  const handleSubmit = () => {
+    if (!user) {
+      nav("/login");
+    }
+  }
   return (
     <>
       <div
@@ -52,7 +62,7 @@ export default function Book() {
                   </div>
                 </div>
               </div>
-              <div className="col-md-2">
+              <div className="col-md-2 cursor-pointer" onClick={handleSubmit}>
                 <button className="btn btn-primary w-100">Submit</button>
               </div>
             </div>

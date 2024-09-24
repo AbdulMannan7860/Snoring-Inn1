@@ -39,10 +39,41 @@ const AuthState = (props) => {
         }
     }
 
+    const registration = async (name, email, contactInfo, role, password) => {
+        try {
+            setLoading(true)
+            const res = await fetch(`${host}/api/auth/register`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ name, email, contactInfo, role, password })
+            })
+            const data = await res.json();
+
+            if (data.message) {
+                toast.error(data.message);
+                return false;
+            }
+
+            if (data.success) {
+                toast.success(data.success);
+                return true;
+            }
+
+        } catch (error) {
+            console.log(error);
+            return false;
+        } finally {
+            setLoading(false);
+        }
+    }
+
     return (
         <AuthContext.Provider value={{
             loading,
-            login
+            login,
+            registration
         }}>
             {children}
         </AuthContext.Provider>

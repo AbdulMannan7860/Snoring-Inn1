@@ -69,7 +69,7 @@ function LoginForm() {
             )}
           </button>
         </form>
-        <p>Forgot your password? <a href="/reset-password">Reset it here</a></p>
+        <p>Dont have an account? <a href="/registration">Register here</a></p>
       </div>
     </div>
   );

@@ -7,7 +7,6 @@ import './PortalPage.css';
 function PortalPage() {
   return (
     <>
-      <h1 className='portalHeading'>Portal Page</h1>
       <div className="portalContainer">
         <SearchInput />
         <div className="tableContainer">

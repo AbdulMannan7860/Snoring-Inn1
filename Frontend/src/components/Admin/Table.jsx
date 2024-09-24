@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import HotelContext from '../../Context/Hotel Context/Hotel.context';
 
 function Table() {
   return (

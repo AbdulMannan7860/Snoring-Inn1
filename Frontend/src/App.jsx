@@ -25,6 +25,7 @@ import "./App.css";
 
 import AuthState from "./Context/Auth Context/Auth.State.jsx";
 import HotelState from "./Context/Hotel Context/Hotel.state.jsx";
+import RegistrationPage from "./pages/Registration/Registration.jsx";
 
 function AppContent({ auth }) {
   const location = useLocation();
@@ -32,16 +33,18 @@ function AppContent({ auth }) {
   const hideNavbarPaths = [
     '/login',
     '/portal',
+    '/registration',
   ];
 
   const hideNavbar = hideNavbarPaths.includes(location.pathname);
 
   return (
     <>
-      {!hideNavbar && <Header />}
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={auth ? <Navigate to="/portal" /> : <LoginPage auth={auth} />} />
+        <Route path='/registration' element={auth ? <Navigate to="/portal" /> : <RegistrationPage auth={auth} />} />
         <Route path='/portal' element={auth ? <PortalPage /> : <Navigate to="/login" />} />
         <Route path="/booking" element={<BookingPage />} />
         <Route path="/team" element={<TeamPage />} />
