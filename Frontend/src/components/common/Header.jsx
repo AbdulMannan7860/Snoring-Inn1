@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { navList } from "../data/Data.jsx";
 import SocialIcons from "./SocialIcons";
+import { CgProfile } from "react-icons/cg";
 
 export default function Header() {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const [navbarCollapse, setNavbarCollapse] = useState(false);
 
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -15,6 +18,14 @@ export default function Header() {
   const handleMouseLeave = () => {
     setActiveDropdown(null);
   };
+
+  const nav = useNavigate();
+
+  const handleUserClick = () => {
+    if (!user) {
+      nav("/login");
+    }
+  }
 
   return (
     <>
@@ -64,11 +75,13 @@ export default function Header() {
                             className={`dropdown-menu rounded-0 m-0 ${activeDropdown === item.id ? "show" : ""
                               }`}
                           >
-                            {item.subItems.map((sub, index) => (
-                              <Link to={sub.path} key={index} className="dropdown-item">
-                                {sub.text}
-                              </Link>
-                            ))}
+                            <>
+                              {item.subItems.map((sub, index) => (
+                                <Link to={sub.path} key={index} className="dropdown-item">
+                                  {sub.text}
+                                </Link>
+                              ))}
+                            </>
                           </div>
                         </div>
                       ) : (
@@ -78,8 +91,21 @@ export default function Header() {
                       )}
                     </div>
                   ))}
+                  {(user && user?.role === 'admin') &&
+                    <Link className="nav-link" to={'/portal'}>
+                      Portal
+                    </Link>
+                  }
                 </div>
                 <SocialIcons />
+                <div>
+                  <div className="d-flex flex-wrap align-items-center">
+                    <button className="bg-transparent border-0">
+                      <CgProfile className="fs-2 text-primary mt-1 cursor-pointer" onClick={handleUserClick} />
+                    </button>
+                    <p className="fs-5 text-white m-0 ms-2">{user?.name}</p>
+                  </div>
+                </div>
               </div>
             </nav>
           </div>
