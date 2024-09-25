@@ -21,11 +21,6 @@ const AuthState = (props) => {
             })
             const data = await res.json();
 
-            if (data.message) {
-                toast.error(data.message);
-                return false;
-            }
-
             if (data.success) {
                 setUsers(data.users);
             }

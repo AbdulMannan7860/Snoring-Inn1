@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { navList } from "../data/Data.jsx";
 import SocialIcons from "./SocialIcons";
-import { CgProfile } from "react-icons/cg";
+import { CgLogOut, CgProfile } from "react-icons/cg";
 
 export default function Header() {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -25,6 +25,12 @@ export default function Header() {
     if (!user) {
       nav("/login");
     }
+  }
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    nav("/");
   }
 
   return (
@@ -104,6 +110,13 @@ export default function Header() {
                       <CgProfile className="fs-2 text-primary mt-1 cursor-pointer" onClick={handleUserClick} />
                     </button>
                     <p className="fs-5 text-white m-0 ms-2">{user?.name}</p>
+                  </div>
+                </div>
+                <div>
+                  <div className="d-flex flex-wrap align-items-center">
+                    <button className="bg-transparent border-0">
+                      <CgLogOut className="fs-2 text-primary mt-1 cursor-pointer" onClick={handleLogout} />
+                    </button>
                   </div>
                 </div>
               </div>
