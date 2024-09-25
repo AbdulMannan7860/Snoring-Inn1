@@ -11,6 +11,7 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+Production
 *.local
 
 # Editor directories and files
@@ -23,3 +24,4 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+Backend/Production.zip
