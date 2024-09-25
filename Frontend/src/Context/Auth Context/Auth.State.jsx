@@ -102,7 +102,7 @@ const AuthState = (props) => {
     }
 
     useEffect(() => {
-        if (!token && user.role !== "admin") {
+        if (!token && user?.role !== "admin") {
             return;
         }
         getUsers();

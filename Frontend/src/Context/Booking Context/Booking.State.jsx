@@ -136,7 +136,7 @@ const BookingState = (props) => {
     }
 
     useEffect(() => {
-        if (!token && user.role !== "admin") {
+        if (!token && user?.role !== "admin") {
             return;
         }
         getBooking();
