@@ -24,13 +24,13 @@ function RegistrationForm() {
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        const { name, email, contactInfo, password } = formData;
+        const { name, email, role, contactInfo, password } = formData;
 
-        if (!email || !name || !contactInfo || !password) {
+        if (!email || !name || !contactInfo || !role || !password) {
             return;
         }
 
-        const boolean = await registration(name, email, contactInfo, password);
+        const boolean = await registration(name, email, contactInfo, role, password);
 
         if (boolean) {
             navigate('/login');
