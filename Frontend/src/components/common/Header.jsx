@@ -113,17 +113,19 @@ export default function Header() {
                   </div>
                 </div>
                 <div>
-                  <div className="d-flex flex-wrap align-items-center">
-                    <button className="bg-transparent border-0">
-                      <CgLogOut className="fs-2 text-primary mt-1 cursor-pointer" onClick={handleLogout} />
-                    </button>
-                  </div>
+                  {user &&
+                    <div className="d-flex flex-wrap align-items-center">
+                      <button className="bg-transparent border-0">
+                        <CgLogOut className="fs-2 text-primary mt-1 cursor-pointer" onClick={handleLogout} />
+                      </button>
+                    </div>
+                  }
                 </div>
               </div>
             </nav>
           </div>
-        </div>
-      </div>
+        </div >
+      </div >
     </>
   );
 }
