@@ -73,7 +73,7 @@ function RegistrationForm() {
                     <button type="submit">
                         {!loading ? (
                             <span className='text-lg font-bold font-inter text-darkText'>
-                                Login
+                                Register
                             </span>
                         ) : (
                             <img
