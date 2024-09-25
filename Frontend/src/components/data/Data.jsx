@@ -69,14 +69,14 @@ export const socialIcons = [
 
 export const carouselData = [
   {
-    img: "/src/assets/carousel-1.jpg",
+    img: "https://snoringinn.emaan.edu.pk/assets1/carousel-1.jpg",
     title: "Luxury in your Room",
     subtitle: "Ask for the best room with ultimate privacy. Feel Special.",
     btn1: "Our Room",
     btn2: "Book Room",
   },
   {
-    img: "/src/assets/carousel-2.jpg",
+    img: '.assets/carousel-2.jpg',
     title: "Luxury in your Room",
     subtitle: "Ask for the best room with ultimate privacy. Feel Special.",
     btn1: "Our Room",
@@ -137,22 +137,22 @@ export const services = [
 ];
 export const team = [
   {
-    image: "/src/assets/team-1.jpg",
+    image: "https://snoringinn.emaan.edu.pk/assets1/team-1.jpg",
     name: "Full Name",
     designation: "Designation",
   },
   {
-    image: "/src/assets/team-2.jpg",
+    image: "https://snoringinn.emaan.edu.pk/assets1/team-2.jpg",
     name: "Full Name",
     designation: "Designation",
   },
   {
-    image: "/src/assets/team-3.jpg",
+    image: "https://snoringinn.emaan.edu.pk/assets1/team-3.jpg",
     name: "Full Name",
     designation: "Designation",
   },
   {
-    image: "/src/assets/team-4.jpg",
+    image: "https://snoringinn.emaan.edu.pk/assets1/team-4.jpg",
     name: "Full Name",
     designation: "Designation",
   },
@@ -244,7 +244,7 @@ export const testimonial = [
     icon: (
       <i className="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
     ),
-    img: "/src/assets/testimonial-1.jpg",
+    img: "https://snoringinn.emaan.edu.pk/assets1/testimonial-1.jpg",
   },
   {
     description:
@@ -254,7 +254,7 @@ export const testimonial = [
     icon: (
       <i className="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
     ),
-    img: "/src/assets/testimonial-2.jpg",
+    img: "https://snoringinn.emaan.edu.pk/assets1/testimonial-2.jpg",
   },
   {
     description:
@@ -264,13 +264,13 @@ export const testimonial = [
     icon: (
       <i className="fa fa-quote-right fa-3x text-primary position-absolute end-0 bottom-0 me-4 mb-n1"></i>
     ),
-    img: "/src/assets/testimonial-3.jpg",
+    img: "https://snoringinn.emaan.edu.pk/assets1/testimonial-3.jpg",
   },
 ];
 
 export const roomItems = [
   {
-    img: "/src/assets/room-1.jpg",
+    img: "https://snoringinn.emaan.edu.pk/assets1/room-1.jpg",
     price: "$110/night",
     name: "Junior Suit",
     star: [
@@ -287,7 +287,7 @@ export const roomItems = [
   },
 
   {
-    img: "/src/assets/room-2.jpg",
+    img: "https://snoringinn.emaan.edu.pk/assets1/room-2.jpg",
     price: "$110/night",
     name: "Executive Suite",
     star: [
@@ -303,7 +303,7 @@ export const roomItems = [
     darkbtn: "book now",
   },
   {
-    img: "/src/assets/room-3.jpg",
+    img: "https://snoringinn.emaan.edu.pk/assets1/room-3.jpg",
     price: "$110/night",
     name: "Super Deluxe",
     star: [

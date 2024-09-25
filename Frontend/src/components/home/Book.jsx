@@ -75,7 +75,6 @@ export default function Book() {
                       onChange={handleChange}
                       value={formData.hotelId}
                       name="hotelId"
-                      required
                     >
                       <option value="">Select Hotel</option>
                       {data.map((hotel) => (
@@ -93,7 +92,6 @@ export default function Book() {
                       value={formData.checkIn}
                       className="form-control"
                       name="checkIn"
-                      required
                     />
                   </div>
                   <div className="col-md-2">
@@ -104,7 +102,6 @@ export default function Book() {
                       value={formData.checkOut}
                       className="form-control"
                       name="checkOut"
-                      required
                     />
                   </div>
                   <div className="col-md-2">
@@ -114,7 +111,6 @@ export default function Book() {
                       onChange={handleChange}
                       value={formData.adults}
                       name="adults"
-                      required
                     >
                       <option value="">Adults</option>
                       <option value="1">1</option>
@@ -130,7 +126,6 @@ export default function Book() {
                       onChange={handleChange}
                       value={formData.children}
                       name="children"
-                      required
                     >
                       <option value="">Children</option>
                       <option value="1">1</option>

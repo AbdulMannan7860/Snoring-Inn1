@@ -137,9 +137,6 @@ const HotelState = (props) => {
     };
 
     useEffect(() => {
-        if (!token) {
-            return;
-        }
         getHotels();
     }, [token]);
     return (

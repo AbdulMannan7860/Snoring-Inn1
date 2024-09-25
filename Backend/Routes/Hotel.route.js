@@ -6,7 +6,7 @@ import { createHotel, editHotel, deleteHotel, getHotels } from "../Controllers/H
 
 const router = express.Router();
 
-router.get("/hotels", fetchUser, getHotels);
+router.get("/hotels", getHotels);
 router.post("/createhotel", fetchUser, createHotel);
 router.post("/edithotel/:id", fetchUser, editHotel);
 router.delete("/deletehotel/:id", fetchUser, deleteHotel);

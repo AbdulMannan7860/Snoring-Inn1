@@ -25,3 +25,5 @@ Production
 *.sln
 *.sw?
 Backend/Production.zip
+Frontend/assets.zip
+Frontend/dist.zip
