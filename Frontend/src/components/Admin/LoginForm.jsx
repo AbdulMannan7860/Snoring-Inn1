@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import loadingGif from '../../assets/loading.gif';
 
@@ -73,7 +73,7 @@ function LoginForm() {
             )}
           </button>
         </form>
-        <p>Dont have an account? <a href="/registration">Register here</a></p>
+        <p>Dont have an account? <Link to="/registration">Register here</Link></p>
       </div>
     </div>
   );
