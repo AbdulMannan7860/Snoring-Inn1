@@ -29,8 +29,12 @@ function LoginForm() {
 
     const boolean = await login(email, password);
 
-    if (boolean) {
-      navigate('/portal');
+    if (boolean?.bool) {
+      if (boolean.user?.role === 'admin') {
+        navigate('/portal');
+      } else {
+        navigate('/');
+      }
     }
   };
 

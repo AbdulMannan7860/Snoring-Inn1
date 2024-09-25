@@ -60,7 +60,7 @@ const AuthState = (props) => {
                 setAuth(data.token);
                 localStorage.setItem("user", JSON.stringify(data.user));
                 localStorage.setItem("token", data.token);
-                return true;
+                return { bool: true, user: data.user };
             }
 
         } catch (error) {
