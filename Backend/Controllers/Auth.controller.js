@@ -1,8 +1,8 @@
-import dotenv from "dotenv";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import crypto from "crypto";
-import User from "../Modals/User.modal.js";
+const dotenv = require("dotenv");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const crypto = require("crypto");
+const User = require("../Modals/User.modal.js");
 
 dotenv.config();
 
@@ -22,11 +22,9 @@ const generateRandomString = (length) => {
         .substring(0, length);
 };
 
-export const getUsers = async (req, res) => {
+exports.getUsers = async (req, res) => {
     try {
-
         const user = req.user;
-
         const findUser = await User.findById(user._id);
 
         if (!findUser) {
@@ -55,9 +53,9 @@ export const getUsers = async (req, res) => {
             error: error.message
         });
     }
-}
+};
 
-export const register = async (req, res) => {
+exports.register = async (req, res) => {
     try {
         const { name, email, contactInfo, role, password } = req.body;
 
@@ -93,10 +91,9 @@ export const register = async (req, res) => {
             error: error.message
         });
     }
-}
+};
 
-
-export const login = async (req, res) => {
+exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
 
@@ -116,7 +113,7 @@ export const login = async (req, res) => {
             });
         }
 
-        if (!user.resetLink || !user.resetLink === "" || !user.resetLink === null) {
+        if (!user.resetLink || user.resetLink === "" || user.resetLink === null) {
             const link = generateRandomString(10);
             const resetLink = `/reset/${user._id}/${link}`;
             user.resetLink = resetLink;
@@ -140,12 +137,11 @@ export const login = async (req, res) => {
             error: error.message
         });
     }
-}
+};
 
-export const resetPassword = async (req, res) => {
+exports.resetPassword = async (req, res) => {
     try {
         const user = req.user._id;
-
         const { password } = req.body;
 
         if (!password || !user) {
@@ -165,16 +161,13 @@ export const resetPassword = async (req, res) => {
         if (!userExists.resetLink || userExists.resetLink === "" || userExists.resetLink === null) {
             const link = generateRandomString(10);
             const newLink = `/reset/${user._id}/${link}`;
-
             userExists.resetLink = newLink;
-
             await userExists.save();
         }
 
         const hashedPassword = await addSaltAndPepper(password);
 
         userExists.password = hashedPassword;
-
         await userExists.save();
 
         res.status(200).json({
@@ -187,6 +180,4 @@ export const resetPassword = async (req, res) => {
             error: error.message
         });
     }
-}
-
-
+};

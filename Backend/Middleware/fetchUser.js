@@ -1,9 +1,10 @@
-import jwt from 'jsonwebtoken';
-import User from '../Modals/User.modal.js';
+const jwt = require('jsonwebtoken');
+const User = require('../Modals/User.modal.js');
 
 const JWTSECRET = process.env.JWT_SECRET;
+
 const fetchUser = async (req, res, next) => {
-    const token = req.header('auth-token').toString();
+    const token = req.header('auth-token')?.toString();
 
     if (!token) {
         return res.status(401).send('Access Denied');
@@ -28,4 +29,4 @@ const fetchUser = async (req, res, next) => {
     }
 };
 
-export default fetchUser;
+module.exports = fetchUser;

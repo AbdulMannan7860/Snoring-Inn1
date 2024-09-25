@@ -1,8 +1,6 @@
-import express from "express";
-
-import fetchUser from "../Middleware/fetchUser.js";
-
-import { getUsers, login, register, resetPassword } from "../Controllers/Auth.controller.js";
+const express = require("express");
+const fetchUser = require("../Middleware/fetchUser");
+const { getUsers, login, register, resetPassword } = require("../Controllers/Auth.controller");
 
 const router = express.Router();
 
@@ -11,4 +9,4 @@ router.post("/register", register);
 router.post("/login", login);
 router.post("/resetPassword", fetchUser, resetPassword);
 
-export default router
+module.exports = router;

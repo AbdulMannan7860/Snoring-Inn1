@@ -1,7 +1,7 @@
-import BookingModal from "../Modals/Booking.modal.js";
-import UserModal from "../Modals/User.modal.js";
+const BookingModal = require("../Modals/Booking.modal.js");
+const UserModal = require("../Modals/User.modal.js");
 
-export const createBooking = async (req, res) => {
+exports.createBooking = async (req, res) => {
     const user = req.user;
     const { hotelId, checkIn, checkOut, adults, children } = req.body;
 
@@ -43,8 +43,7 @@ export const createBooking = async (req, res) => {
     });
 };
 
-
-export const getBookings = async (req, res) => {
+exports.getBookings = async (req, res) => {
     const user = req.user;
 
     if (user.role !== "admin") {
@@ -67,11 +66,10 @@ export const getBookings = async (req, res) => {
         success: "Bookings fetched successfully",
         bookings
     });
-}
+};
 
-export const issueBooking = async (req, res) => {
+exports.issueBooking = async (req, res) => {
     const user = req.user;
-
     const { roomNumber, ticketNumber } = req.body;
 
     if (user.role !== "admin") {
@@ -87,7 +85,6 @@ export const issueBooking = async (req, res) => {
     }
 
     const bookingId = req.params.id;
-
     const booking = await BookingModal.findById(bookingId);
 
     if (!booking) {
@@ -105,10 +102,9 @@ export const issueBooking = async (req, res) => {
         success: "Booking updated successfully",
         booking
     });
-}
+};
 
-
-export const deleteBooking = async (req, res) => {
+exports.deleteBooking = async (req, res) => {
     const user = req.user;
 
     if (user.role !== "admin") {
@@ -118,7 +114,6 @@ export const deleteBooking = async (req, res) => {
     }
 
     const bookingId = req.params.id;
-
     const booking = await BookingModal.findById(bookingId);
 
     if (!booking) {
@@ -132,4 +127,4 @@ export const deleteBooking = async (req, res) => {
     res.status(200).json({
         success: "Booking deleted successfully"
     });
-}
+};

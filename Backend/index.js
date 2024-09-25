@@ -1,13 +1,13 @@
-import dotenv from "dotenv";
-import express from "express";
-import cookieParser from "cookie-parser";
-import cors from "cors";
+const dotenv = require("dotenv");
+const express = require("express");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
-import connectToMongo from "./db/db.js";
+const connectToMongo = require("./db/db.js");
 
-import AuthRoute from "./Routes/Auth.route.js";
-import HotelRoute from "./Routes/Hotel.route.js";
-import BookingRoute from "./Routes/Booking.route.js";
+const AuthRoute = require("./Routes/Auth.route.js");
+const HotelRoute = require("./Routes/Hotel.route.js");
+const BookingRoute = require("./Routes/Booking.route.js");
 
 dotenv.config();
 
