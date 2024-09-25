@@ -7,6 +7,7 @@ import connectToMongo from "./db/db.js";
 
 import AuthRoute from "./Routes/Auth.route.js";
 import HotelRoute from "./Routes/Hotel.route.js";
+import BookingRoute from "./Routes/Booking.route.js";
 
 dotenv.config();
 
@@ -29,8 +30,9 @@ connectToMongo()
         process.exit(1);
     });
 
-app.use('/api/auth', AuthRoute)
-app.use('/api/hotel', HotelRoute)
+app.use('/api/auth', AuthRoute);
+app.use('/api/hotel', HotelRoute);
+app.use('/api/booking', BookingRoute);
 
 app.get("/", (req, res) => {
     res.send("Backend server is running ! 🚀🚀🚀");

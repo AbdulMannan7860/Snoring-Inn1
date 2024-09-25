@@ -24,7 +24,9 @@ import "./css/animate.css";
 import "./App.css";
 
 import AuthState from "./Context/Auth Context/Auth.State.jsx";
-import HotelState from "./Context/Hotel Context/Hotel.state.jsx";
+import HotelState from "./Context/Hotel Context/Hotel.State.jsx";
+import BookingState from "./Context/Booking Context/Booking.State.jsx"
+
 import RegistrationPage from "./pages/Registration/Registration.jsx";
 
 function AppContent({ auth }) {
@@ -64,12 +66,14 @@ export default function App() {
   const [auth, setAuth] = useState(token);
   return (
     <AuthState setAuth={setAuth}>
-      <HotelState>
-        <Router>
-          <AppContent auth={auth} />
-        </Router>
-        <Toaster />
-      </HotelState>
+      <BookingState>
+        <HotelState>
+          <Router>
+            <AppContent auth={auth} />
+          </Router>
+          <Toaster />
+        </HotelState>
+      </BookingState>
     </AuthState>
   );
 }

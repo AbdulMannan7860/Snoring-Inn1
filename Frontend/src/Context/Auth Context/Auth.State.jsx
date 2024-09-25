@@ -1,10 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AuthContext from './Auth.context';
 import toast from 'react-hot-toast';
 const AuthState = (props) => {
     const { children, setAuth } = props;
     const [loading, setLoading] = useState(false);
+    const [users, setUsers] = useState([]);
     const host = import.meta.env.VITE_HOST;
+
+    const token = localStorage.getItem("token");
+    const user = localStorage.getItem("user");
+
+    const getUsers = async () => {
+        try {
+            setLoading(true)
+            const res = await fetch(`${host}/api/auth/getusers`, {
+                method: "GET",
+                headers: {
+                    "auth-token": localStorage.getItem("token")
+                }
+            })
+            const data = await res.json();
+
+            if (data.message) {
+                toast.error(data.message);
+                return false;
+            }
+
+            if (data.success) {
+                setUsers(data.users);
+            }
+
+        } catch (error) {
+            console.log(error);
+            return false;
+        } finally {
+            setLoading(false);
+        }
+    }
 
     const login = async (email, password) => {
         try {
@@ -69,9 +101,17 @@ const AuthState = (props) => {
         }
     }
 
+    useEffect(() => {
+        if (!token && user.role !== "admin") {
+            return;
+        }
+        getUsers();
+    }, [token]);
+
     return (
         <AuthContext.Provider value={{
             loading,
+            users,
             login,
             registration
         }}>

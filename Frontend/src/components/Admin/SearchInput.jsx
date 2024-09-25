@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { FaEdit, FaTrash } from 'react-icons/fa'; // Import edit and delete icons
+import { FaEdit, FaTrash } from 'react-icons/fa';
 import HotelContext from '../../Context/Hotel Context/Hotel.context';
 import loadingGif from '../../assets/loading.gif';
 
-function SearchInput() {
+function SearchInput({ setSearch, setBool }) {
   const context = useContext(HotelContext);
   const { hotels, createHotel, loading } = context;
 
@@ -14,7 +14,7 @@ function SearchInput() {
     description: '',
   });
   const [data, setData] = useState(hotels);
-  const [selectedHotel, setSelectedHotel] = useState(null); // Track selected hotel for actions
+  const [selectedHotel, setSelectedHotel] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -47,12 +47,10 @@ function SearchInput() {
 
   const handleEditHotel = (hotel) => {
     console.log(`Edit hotel ${hotel.name}`);
-    // Add edit logic here
   };
 
   const handleDeleteHotel = (hotel) => {
     console.log(`Delete hotel ${hotel.name}`);
-    // Add delete logic here
   };
 
   return (
@@ -63,7 +61,7 @@ function SearchInput() {
             name="hotelName"
             className="w-75 rounded border-none"
             value={selectedHotel || ''}
-            onChange={(e) => setSelectedHotel(e.target.value)} // Capture selected hotel
+            onChange={(e) => setSelectedHotel(e.target.value)}
           >
             <option value="">Select Hotel</option>
             {data.map((hotel) => (
@@ -75,14 +73,14 @@ function SearchInput() {
           <div className='w-25 pt-3 mt-1'>
             {selectedHotel && (
               <div className="d-flex align-items-center mx-3">
-                <FaEdit
+                {/* <FaEdit
                   className="mx-2 text-white"
                   style={{ cursor: 'pointer' }}
                   title="Edit"
                   onClick={() => handleEditHotel(data.find(h => h._id === selectedHotel))}
-                />
+                /> */}
                 <FaTrash
-                  className="text-white"
+                  className="text-danger"
                   style={{ cursor: 'pointer' }}
                   title="Delete"
                   onClick={() => handleDeleteHotel(data.find(h => h._id === selectedHotel))}
@@ -96,10 +94,10 @@ function SearchInput() {
             Create Hotel
           </button>
         </div>
-        <div className="searchContainer w-25">
-          <input type="text" placeholder="Search..." />
-          <button>🔍</button>
-        </div>
+        {/* <div className="searchContainer w-25">
+          <input type="text" placeholder="Search..." onChange={(e) => setSearch(e.target.value)} />
+          <button onClick={() => setBool(true)}>🔍</button>
+        </div> */}
       </div>
 
       {showModal && (
