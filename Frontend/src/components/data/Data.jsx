@@ -76,7 +76,7 @@ export const carouselData = [
     btn2: "Book Room",
   },
   {
-    img: 'https://snoringinn.emaan.edu.pk/carousel-2.jpg',
+    img: 'https://snoringinn.emaan.edu.pk/assets1/carousel-2.jpg',
     title: "Luxury in your Room",
     subtitle: "Ask for the best room with ultimate privacy. Feel Special.",
     btn1: "Our Room",
