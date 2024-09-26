@@ -22,6 +22,7 @@ const BookingState = (props) => {
             });
 
             const data = await res.json();
+            
 
             if (data.success) {
                 setBooking(data.bookings);
