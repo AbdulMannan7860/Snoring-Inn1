@@ -22,11 +22,7 @@ const BookingState = (props) => {
             });
 
             const data = await res.json();
-
-            if (data.message) {
-                toast.error(data.message);
-                return;
-            }
+            
 
             if (data.success) {
                 setBooking(data.bookings);
