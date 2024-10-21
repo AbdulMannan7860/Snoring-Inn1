@@ -5,7 +5,7 @@ const { createBooking, deleteBooking, getBookings, issueBooking } = require("../
 const router = express.Router();
 
 router.get("/getbookings", fetchUser, getBookings);
-router.post("/createbooking", fetchUser, createBooking);
+router.post("/createbooking", createBooking);
 router.post("/issueBooking/:id", fetchUser, issueBooking);
 router.delete("/deletebooking/:id", fetchUser, deleteBooking);
 

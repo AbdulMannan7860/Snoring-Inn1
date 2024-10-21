@@ -22,7 +22,7 @@ const BookingState = (props) => {
             });
 
             const data = await res.json();
-            
+
 
             if (data.success) {
                 setBooking(data.bookings);
@@ -35,7 +35,7 @@ const BookingState = (props) => {
         }
     }
 
-    const createBooking = async (hotelId, checkIn, checkOut, adults, children) => {
+    const createBooking = async (hotelId, checkIn, checkOut, adults, children, name, email, contactInfo) => {
         try {
             setLoading(true);
             const res = await fetch(`${host}/api/booking/createbooking`, {
@@ -44,11 +44,11 @@ const BookingState = (props) => {
                     "Content-Type": "application/json",
                     "auth-token": token,
                 },
-                body: JSON.stringify({ hotelId, checkIn, checkOut, adults, children }),
+                body: JSON.stringify({ hotelId, checkIn, checkOut, adults, children, name, email, contactInfo }),
             });
 
             const data = await res.json();
-            
+
             if (data.success) {
                 setBooking([...booking, data.booking]);
                 toast.success("Booking is under review");

@@ -2,10 +2,9 @@ const BookingModal = require("../Modals/Booking.modal.js");
 const UserModal = require("../Modals/User.modal.js");
 
 exports.createBooking = async (req, res) => {
-    const user = req.user;
-    const { hotelId, checkIn, checkOut, adults, children } = req.body;
+    const { hotelId, checkIn, checkOut, adults, children, name, email, contactInfo } = req.body;
 
-    if (!hotelId || !checkIn || !checkOut || !adults || !children) {
+    if (!hotelId || !checkIn || !checkOut || !adults || !children || !name || !email || !contactInfo) {
         return res.status(400).json({
             message: "All fields are required"
         });
@@ -20,16 +19,10 @@ exports.createBooking = async (req, res) => {
         });
     }
 
-    const checkUser = await UserModal.findById(user._id);
-
-    if (!checkUser) {
-        return res.status(401).json({
-            message: "Please login first"
-        });
-    }
-
     const booking = await BookingModal.create({
-        userId: user._id,
+        name,
+        email,
+        contactInfo,
         hotelId,
         checkIn: checkInDate,
         checkOut: checkOutDate,

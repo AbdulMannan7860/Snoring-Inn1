@@ -37,18 +37,18 @@ function Table({ search, bool }) {
     setHotelsData(hotels);
   }, [hotels]);
 
-  const getUserName = (id) => {
-    const user = userData.find((user) => user._id === id);
-    return user?.name;
-  }
-  const getUserEmail = (id) => {
-    const user = userData.find((user) => user._id === id);
-    return user?.email;
-  }
-  const getUserContact = (id) => {
-    const user = userData.find((user) => user._id === id);
-    return user?.contactInfo;
-  }
+  // const getUserName = (id) => {
+  //   const user = userData.find((user) => user._id === id);
+  //   return user?.name;
+  // }
+  // const getUserEmail = (id) => {
+  //   const user = userData.find((user) => user._id === id);
+  //   return user?.email;
+  // }
+  // const getUserContact = (id) => {
+  //   const user = userData.find((user) => user._id === id);
+  //   return user?.contactInfo;
+  // }
 
   const getHotelName = (id) => {
     const hotel = hotelsData.find((hotel) => hotel._id === id);
@@ -91,9 +91,9 @@ function Table({ search, bool }) {
         {data && data.map((booking, index) => (
           <tr key={booking?._id}>
             <td>{index + 1}</td>
-            <td>{getUserName(booking?.userId) ? getUserName(booking?.userId) : "-"}</td>
-            <td>{getUserEmail(booking?.userId) ? getUserEmail(booking?.userId) : "-"}</td>
-            <td>{getUserContact(booking?.userId) ? getUserContact(booking?.userId) : "-"}</td>
+            <td>{booking?.name ? booking?.name : "-"}</td>
+            <td>{booking?.email ? booking?.email : "-"}</td>
+            <td>{booking?.contactInfo ? booking?.contactInfo : "-"}</td>
             <td>{getHotelName(booking?.hotelId) ? getHotelName(booking?.hotelId) : "-"}</td>
             <td>
               {id === booking?._id ?
@@ -142,33 +142,6 @@ function Table({ search, bool }) {
             </td>
           </tr>
         ))}
-
-        {/* <tr>
-          <td>1</td>
-          <td>Unsa Mariyam</td>
-          <td>unsa@gmail.com</td>
-          <td>1234567890</td>
-          <td>Hotel Name</td>
-          <td>101</td>
-          <td>12345</td>
-          <td>
-            <button>Accept</button>
-            <button>Reject</button>
-          </td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Laiba Khan</td>
-          <td>laiba@gmail.com</td>
-          <td>1234567890</td>
-          <td>Hotel Name</td>
-          <td>101</td>
-          <td>12345</td>
-          <td>
-            <button>Accept</button>
-            <button>Reject</button>
-          </td>
-        </tr> */}
       </tbody>
     </table>
   );

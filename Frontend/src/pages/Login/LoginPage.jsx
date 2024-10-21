@@ -17,10 +17,8 @@ function LoginPage() {
     fontFamily: `'Poppins', sans-serif`,
     background: `linear-gradient(135deg, #fea116, #D8F0F0)`,
     height: '100vh',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
   }
+
   return (
     <div className="loginPage" style={style}>
       <LoginForm />
