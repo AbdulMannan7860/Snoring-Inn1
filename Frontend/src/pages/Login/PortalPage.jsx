@@ -14,9 +14,6 @@ function PortalPage() {
         <div className="tableContainer">
           <Table search={search} bool={bool} />
         </div>
-        {/* <div className="chartContainer">
-          <ChartComponent />
-        </div> */}
       </div>
     </>
   );
